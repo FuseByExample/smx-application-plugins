@@ -2,7 +2,7 @@ This projects contains a sample integration application that demostrates how to 
 
 This sample is based around a fictional flight booking application. The core process takes flight details which were previously gathered, and if there exists a plugin for the requested airline it accept payment for the ticket and calls out to the airline's back-end to place the booking. 
 
-Airline plugins are OSGi bundles that use [Camel](http://fusesource.com/products/enterprise-camel/) for the integration to their respective systems.
+Airline plugins are OSGi bundles that use [Camel](http://camel.apache.org/) for the integration to their respective systems.
 
 Project layout
 ==============
@@ -18,7 +18,7 @@ There is also an additional parent project `camel-bundle` that simplifies the Ma
 
 Prerequisites
 =============
-Set up Fuse ESB by downloading the latest 7.1.0 version from [FuseSource](http://fusesource.com/). The installation guide can be reached from the Documentation tab on that page.
+Set up JBoss Fuse by downloading the latest 7.1.0 version from [Red Hat](https://access.redhat.com/jbossnetwork/).
 
 Ensure that Maven is set up on your system. 
 
@@ -30,17 +30,17 @@ Download this project and run
 
 Start up ServiceMix
 
-	$FUSE_ESB_HOME> bin/servicemix console
+	$JBOSS_FUSE_HOME> bin/servicemix console
 	
-    ______                   _____  _____ ______
-    |  ___|                 |  ___|/  ___|| ___ \
-    | |_  _   _  ___   ___  | |__  \ `--. | |_/ /
-    |  _|| | | |/ __| / _ \ |  __|  `--. \| ___ \
-    | |  | |_| |\__ \|  __/ | |___ /\__/ /| |_/ /
-    \_|   \__,_||___/ \___| \____/ \____/ \____/
+          _ ____                  ______
+         | |  _ \                |  ____|
+         | | |_) | ___  ___ ___  | |__ _   _ ___  ___
+     _   | |  _ < / _ \/ __/ __| |  __| | | / __|/ _ \
+    | |__| | |_) | (_) \__ \__ \ | |  | |_| \__ \  __/
+     \____/|____/ \___/|___/___/ |_|   \__,_|___/\___|
 
-      Fuse ESB (7.1.0.fuse-047)
-      http://fusesource.com/products/fuse-esb-enterprise/
+      JBoss Fuse (6.0.0.redhat-019)
+      http://www.redhat.com/products/jbossenterprisemiddleware/fuse/
 
     Hit '<tab>' for a list of available commands
     and '[cmd] --help' for help on a specific command.
@@ -48,11 +48,11 @@ Start up ServiceMix
 
 Install the features file from your local Maven repo into the known collection of features:
 
-	FuseESB:karaf@root> features:addurl mvn:com.fusesource.examples/flights-features/1.0-SNAPSHOT/xml/features
+	JBossFuse:karaf@root> features:addurl mvn:com.fusesource.examples/flights-features/1.0-SNAPSHOT/xml/features
 
 You can now check that the features defined in that file are available for installation:
 
-	FuseESB:karaf@root> features:list | grep flights
+	JBossFuse:karaf@root> features:list | grep flights
 	[uninstalled] [1.0                 ] flights-booking                      smx-application-plugins           
 	[uninstalled] [1.0                 ] flights-irish-airline                smx-application-plugins           
 	[uninstalled] [1.0                 ] flights-german-airline               smx-application-plugins
@@ -61,8 +61,8 @@ _NP: It's often a good idea to prefix all of your features and bundles with a kn
 
 Install the core booking system's OSGi bundles by installing the `flights-booking` feature
 
-	FuseESB:karaf@root> features:install flights-booking
-	FuseESB:karaf@root> list | grep flights
+	JBossFuse:karaf@root> features:install flights-booking
+	JBossFuse:karaf@root> list | grep flights
 	[ 254] [Active     ] [            ] [Started] [   60] flights-booking (1.0.0.SNAPSHOT)
 	[ 255] [Active     ] [            ] [       ] [   60] flights-booking-spi (1.0.0.SNAPSHOT)
 
@@ -76,8 +76,8 @@ This should return:
 
 Now install the feature which enables integration with Irish Airlines:
 
-	FuseESB:karaf@root> features:install flights-irish-airline 
-	FuseESB:karaf@root> list | grep flights
+	JBossFuse:karaf@root> features:install flights-irish-airline 
+	JBossFuse:karaf@root> list | grep flights
 	[ 254] [Active     ] [            ] [Started] [   60] flights-booking (1.0.0.SNAPSHOT)
 	[ 255] [Active     ] [            ] [       ] [   60] flights-booking-spi (1.0.0.SNAPSHOT)
 	[ 256] [Active     ] [            ] [Started] [   60] flights-plugin-irish-airline (1.0.0.SNAPSHOT)
