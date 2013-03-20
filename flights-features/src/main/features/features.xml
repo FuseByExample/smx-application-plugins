@@ -20,10 +20,12 @@
         <bundle>mvn:com.fusesource.examples/flights-booking-spi/1.0-SNAPSHOT</bundle>
     </feature>
     <feature name="flights-irish-airline" version="1.0">
+        <feature version="${servicemix-version}">camel-nmr</feature>
         <bundle>mvn:com.fusesource.examples/flights-plugin-irish-airline/1.0-SNAPSHOT</bundle>
         <bundle>mvn:com.fusesource.examples/flights-booking-spi/1.0-SNAPSHOT</bundle>
     </feature>
     <feature name="flights-german-airline" version="1.0">
+        <feature version="${servicemix-version}">camel-nmr</feature>
         <bundle>mvn:com.fusesource.examples/flights-plugin-german-airline/1.0-SNAPSHOT</bundle>
         <bundle>mvn:com.fusesource.examples/flights-booking-spi/1.0-SNAPSHOT</bundle>
     </feature>

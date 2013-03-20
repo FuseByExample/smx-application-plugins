@@ -45,12 +45,15 @@ public class BookingProcessorRegistry {
 		return airlineSupported;
 	}
 
-	public String getBookingProcessorUri() {
+	public String getBookingProcessorUri(String flightNumber) {
 		String routeUri = null;
 		if (bookingProcessors != null) {
 			for (BookingProcessor bookingProcessor : bookingProcessors) {
 				try {
-					routeUri = bookingProcessor.getRouteUri();
+                    // check if flight is from airline
+                    if (flightNumber.startsWith(bookingProcessor.getAirlineCode())) {
+                        routeUri = bookingProcessor.getRouteUri();
+                    }
 				} catch (Exception ex) {
 					// the service has gone away
 					continue;					
