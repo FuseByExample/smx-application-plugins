@@ -2,7 +2,7 @@ This projects contains a sample integration application that demostrates how to 
 
 This sample is based around a fictional flight booking application. The core process takes flight details which were previously gathered, and if there exists a plugin for the requested airline it accept payment for the ticket and calls out to the airline's back-end to place the booking. 
 
-Airline plugins are OSGi bundles that use [Camel](http://fusesource.com/products/enterprise-camel/) for the integration to their respective systems.
+Airline plugins are OSGi bundles that use [Camel](http://camel.apache.org/) for the integration to their respective systems.
 
 Project layout
 ==============
@@ -18,7 +18,7 @@ There is also an additional parent project `camel-bundle` that simplifies the Ma
 
 Prerequisites
 =============
-Set up [ServiceMix](http://fusesource.com/products/enterprise-servicemix/) by downloading the latest 4.4.1+ version from [FuseSource](http://fusesource.com/). The installation guide can be reached from the Documentation tab on that page. 
+Set up JBoss Fuse by downloading the latest 7.1.0 version from [Red Hat](https://access.redhat.com/jbossnetwork/).
 
 Ensure that Maven is set up on your system. 
 
@@ -30,26 +30,29 @@ Download this project and run
 
 Start up ServiceMix
 
-	$SERVICEMIX_HOME> bin/servicemix console 
+	$JBOSS_FUSE_HOME> bin/servicemix console
 	
-	 ____                  _          __  __ _      
-	/ ___|  ___ _ ____   _(_) ___ ___|  \/  (_)_  __
-	\___ \ / _ \ '__\ \ / / |/ __/ _ \ |\/| | \ \/ /
-	 ___) |  __/ |   \ V /| | (_|  __/ |  | | |>  < 
-	|____/ \___|_|    \_/ |_|\___\___|_|  |_|_/_/\_\
-	
-	  Apache ServiceMix (4.4.1-fuse-03-06)
-	
-	Hit '<tab>' for a list of available commands
-	and '[cmd] --help' for help on a specific command.
+          _ ____                  ______
+         | |  _ \                |  ____|
+         | | |_) | ___  ___ ___  | |__ _   _ ___  ___
+     _   | |  _ < / _ \/ __/ __| |  __| | | / __|/ _ \
+    | |__| | |_) | (_) \__ \__ \ | |  | |_| \__ \  __/
+     \____/|____/ \___/|___/___/ |_|   \__,_|___/\___|
+
+      JBoss Fuse (6.0.0.redhat-019)
+      http://www.redhat.com/products/jbossenterprisemiddleware/fuse/
+
+    Hit '<tab>' for a list of available commands
+    and '[cmd] --help' for help on a specific command.
+
 
 Install the features file from your local Maven repo into the known collection of features:
 
-	karaf@root> features:addurl mvn:com.fusesource.examples/flights-features/1.0-SNAPSHOT/xml/features
+	JBossFuse:karaf@root> features:addurl mvn:com.fusesource.examples/flights-features/1.0-SNAPSHOT/xml/features
 
 You can now check that the features defined in that file are available for installation:
 
-	karaf@root> features:list | grep flights
+	JBossFuse:karaf@root> features:list | grep flights
 	[uninstalled] [1.0                 ] flights-booking                      smx-application-plugins           
 	[uninstalled] [1.0                 ] flights-irish-airline                smx-application-plugins           
 	[uninstalled] [1.0                 ] flights-german-airline               smx-application-plugins
@@ -58,8 +61,8 @@ _NP: It's often a good idea to prefix all of your features and bundles with a kn
 
 Install the core booking system's OSGi bundles by installing the `flights-booking` feature
 
-	karaf@root> features:install flights-booking
-	karaf@root> list | grep flights
+	JBossFuse:karaf@root> features:install flights-booking
+	JBossFuse:karaf@root> list | grep flights
 	[ 254] [Active     ] [            ] [Started] [   60] flights-booking (1.0.0.SNAPSHOT)
 	[ 255] [Active     ] [            ] [       ] [   60] flights-booking-spi (1.0.0.SNAPSHOT)
 
@@ -73,8 +76,8 @@ This should return:
 
 Now install the feature which enables integration with Irish Airlines:
 
-	karaf@root> features:install flights-irish-airline 
-	karaf@root> list | grep flights
+	JBossFuse:karaf@root> features:install flights-irish-airline 
+	JBossFuse:karaf@root> list | grep flights
 	[ 254] [Active     ] [            ] [Started] [   60] flights-booking (1.0.0.SNAPSHOT)
 	[ 255] [Active     ] [            ] [       ] [   60] flights-booking-spi (1.0.0.SNAPSHOT)
 	[ 256] [Active     ] [            ] [Started] [   60] flights-plugin-irish-airline (1.0.0.SNAPSHOT)
@@ -83,7 +86,7 @@ Refresh the URL in your browser, you should now see that as the integration serv
 
 	Taking payment for IE943;Irish Airline processed booking 
 
-Repeat again for a flight number starting with "DE" and installing the `flights-plugin-german-airline` feature.
+Repeat again for a flight number starting with "DE" and installing the `flights-german-airline` feature.
 
 Voila! Hot deployable integrations as plugins.
 

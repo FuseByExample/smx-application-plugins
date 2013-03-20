@@ -28,9 +28,9 @@
 
 	<properties>
 		<!-- TODO synchronise these with the smx versions -->
-		<camel-version>2.8.0</camel-version>
-		<activemq-camel-version>5.5.1</activemq-camel-version>
-		<servicemix-version>2011.02</servicemix-version>
+		<camel-version>2.10.0.redhat-60019</camel-version>
+		<activemq-camel-version>5.8.0.redhat-60019</activemq-camel-version>
+		<servicemix-version>4.5.0.redhat-60019</servicemix-version>
 
 		<maven-bundle-plugin-version>2.3.7</maven-bundle-plugin-version>
 		<build-plugins-plugin-version>2.5</build-plugins-plugin-version>
@@ -66,4 +66,29 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+
+    <repositories>
+        <repository>
+            <id>release.fusesource.org</id>
+            <name>FuseSource Release Repository</name>
+            <url>http://repo.fusesource.com/nexus/content/repositories/releases</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>fusesource.ea</id>
+            <name>FuseSource Early Access</name>
+            <url>http://repo.fusesource.com/nexus/content/groups/ea/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
 </project>
