@@ -39,7 +39,7 @@ Start up ServiceMix
     | |__| | |_) | (_) \__ \__ \ | |  | |_| \__ \  __/
      \____/|____/ \___/|___/___/ |_|   \__,_|___/\___|
 
-      JBoss Fuse (6.0.0.redhat-019)
+      JBoss Fuse (6.0.0.redhat-024)
       http://www.redhat.com/products/jbossenterprisemiddleware/fuse/
 
     Hit '<tab>' for a list of available commands

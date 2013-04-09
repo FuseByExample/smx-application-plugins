@@ -28,9 +28,9 @@
 
 	<properties>
 		<!-- TODO synchronise these with the smx versions -->
-		<camel-version>2.10.0.redhat-60019</camel-version>
-		<activemq-camel-version>5.8.0.redhat-60019</activemq-camel-version>
-		<servicemix-version>4.5.0.redhat-60019</servicemix-version>
+		<camel-version>2.10.0.redhat-60024</camel-version>
+		<activemq-camel-version>5.8.0.redhat-60024</activemq-camel-version>
+		<servicemix-version>4.5.0.redhat-60024</servicemix-version>
 
 		<maven-bundle-plugin-version>2.3.7</maven-bundle-plugin-version>
 		<build-plugins-plugin-version>2.5</build-plugins-plugin-version>
