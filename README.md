@@ -18,7 +18,7 @@ There is also an additional parent project `camel-bundle` that simplifies the Ma
 
 Prerequisites
 =============
-Set up JBoss Fuse by downloading the latest 7.1.0 version from [Red Hat](https://access.redhat.com/jbossnetwork/).
+Set up JBoss Fuse by downloading the latest 6.1.0 version from [Red Hat](https://access.redhat.com/jbossnetwork/).
 
 Ensure that Maven is set up on your system. 
 
@@ -28,9 +28,9 @@ Download this project and run
 
 	smx-bootstraps> mvn clean install
 
-Start up ServiceMix
+Start JBoss Fuse
 
-	$JBOSS_FUSE_HOME> bin/servicemix console
+	$JBOSS_FUSE_HOME> bin/fuse
 	
           _ ____                  ______
          | |  _ \                |  ____|
@@ -39,7 +39,7 @@ Start up ServiceMix
     | |__| | |_) | (_) \__ \__ \ | |  | |_| \__ \  __/
      \____/|____/ \___/|___/___/ |_|   \__,_|___/\___|
 
-      JBoss Fuse (6.0.0.redhat-024)
+      JBoss Fuse (6.1.0.redhat-312)
       http://www.redhat.com/products/jbossenterprisemiddleware/fuse/
 
     Hit '<tab>' for a list of available commands
