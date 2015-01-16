@@ -18,7 +18,7 @@ There is also an additional parent project `camel-bundle` that simplifies the Ma
 
 Prerequisites
 =============
-Set up JBoss Fuse by downloading the latest 6.1.0 version from [Red Hat](https://access.redhat.com/jbossnetwork/).
+Set up JBoss Fuse by downloading the latest 6.2.0 version from [Red Hat](https://access.redhat.com/jbossnetwork/).
 
 Ensure that Maven is set up on your system. 
 
@@ -39,7 +39,7 @@ Start JBoss Fuse
     | |__| | |_) | (_) \__ \__ \ | |  | |_| \__ \  __/
      \____/|____/ \___/|___/___/ |_|   \__,_|___/\___|
 
-      JBoss Fuse (6.1.0.redhat-312)
+      JBoss Fuse (6.2.0.redhat-059)
       http://www.redhat.com/products/jbossenterprisemiddleware/fuse/
 
     Hit '<tab>' for a list of available commands
