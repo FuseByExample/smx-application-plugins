@@ -35,7 +35,7 @@
 		<karaf.features.maven.plugin.version>2.4.1</karaf.features.maven.plugin.version>
 		<maven.bundle.plugin.version>2.3.7</maven.bundle.plugin.version>
 		<build.plugins.plugin.version>2.5</build.plugins.plugin.version>
-		<build.helper.plugin.version>1.7</build.helper.plugin.version>
+		<build.helper.maven.plugin.version>1.9.1</build.helper.maven.plugin.version>
 
     	<osgi-import-package>*,org.apache.camel.osgi</osgi-import-package>
 	</properties>
