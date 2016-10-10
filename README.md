@@ -1,3 +1,6 @@
+NOTE: This project is not supported on JBoss Fuse version 6.3 or later
+-----------------------------------------------------------------------
+
 This projects contains a sample integration application that demostrates how to extend the integration capabilities of a core process at runtime(!) via hot-deployable application level plugins.
 
 This sample is based around a fictional flight booking application. The core process takes flight details which were previously gathered, and if there exists a plugin for the requested airline it accept payment for the ticket and calls out to the airline's back-end to place the booking. 
